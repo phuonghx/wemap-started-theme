@@ -1,16 +1,28 @@
-# dependencies
-node_modules
+.sass-cache
+
 bower_components
 
-# compiled output
-/dist
-/.tmp
+node_modules
 
-# System Files
+understrap.zip
+
+dist
+
+dist-product
+
+npm-debug.log
+
+/vendor/
+
 .DS_Store
+
 Thumbs.db
 
-# Jetbrain
-.idea
+.svn
 
-package-lock.json
+.cvs
+
+*.bak
+
+*.swp
+.idea/
