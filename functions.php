@@ -31,3 +31,38 @@ function add_child_theme_textdomain() {
     load_child_theme_textdomain( 'understrap-child', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
+
+
+if ( ! function_exists( 'custom_register_nav_menu' ) ) {
+ 
+    function custom_register_nav_menu(){
+        register_nav_menus( array(
+            'top_menu'  => __( 'Top Menu', 'understrap' ),
+        ) );
+    }
+    add_action( 'after_setup_theme', 'custom_register_nav_menu', 0 );
+}
+
+
+if ( ! function_exists( 'understrap_add_site_info' ) ) {
+	add_action( 'understrap_site_info', 'understrap_add_site_info' );
+
+	/**
+	 * Add site info content.
+	 */
+	function understrap_add_site_info() {
+		$the_theme = wp_get_theme();
+
+		$site_info = sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url( __( 'http://wordpress.org/', 'understrap' ) ),
+			sprintf(
+				/* translators:*/
+				esc_html__( 'Proudly powered by %s', 'understrap' ),
+				'FIMO'
+			)
+		);
+
+		echo apply_filters( 'understrap_site_info_content', $site_info ); // WPCS: XSS ok.
+	}
+}
