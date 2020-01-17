@@ -2,7 +2,7 @@
 
 
 ```sh
- npm install -g gulp
+ npm install -g gulp gulp-cli
 ```
 
 ```sh
